@@ -9,11 +9,11 @@ var count = 0;
 var circlSiz = 100;
 
 function setup() {
-    createCanvas(windowWidth - 8, windowHeight - 56)
+    createCanvas(windowWidth, windowHeight )
 }
 
 function windowResized() {
-    resizeCanvas(windowWidth - 8, windowHeight - 56);
+    resizeCanvas(windowWidth, windowHeight);
 }
 
 function keyPressed() {
@@ -51,10 +51,10 @@ function keyPressed() {
         count++;
     } else if (keyCode === 49) {
         count--;
-    } else if (keyCode === 90) {
-        //Logic block for changing circle size(z for +, x for -)
-        circlSiz++;
     } else if (keyCode === 88) {
+        //Logic block for changing circle size(z for -, x for +)
+        circlSiz++;
+    } else if (keyCode === 90) {
         circlSiz--;
     } else if (keyCode === 67) {
         //c key for size reset
