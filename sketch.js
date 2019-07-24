@@ -9,7 +9,12 @@ var count = 0;
 var circlSiz = 100;
 
 function setup() {
-    createCanvas(windowWidth, windowHeight )
+    createCanvas(windowWidth, windowHeight);
+    document.addEventListener("keydown", function(scshot) {
+        if (scshot.ctrlKey && scshot.altKey && scshot.key === "s") { // case sensitive
+            saveCanvas('myCoolImage', 'jpg');
+        }
+    });
 }
 
 function windowResized() {
