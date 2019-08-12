@@ -28,7 +28,7 @@
       <td>Arrow Right</td>
     </tr>
     <tr>
-      <td>Increase width between dots</td>
+      <td>Increase width between dots(See dev console for distance)</td>
       <td>W</td>
     </tr>
     <tr>

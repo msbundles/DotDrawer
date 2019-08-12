@@ -37,11 +37,11 @@ function keyPressed() {
         y = 360;
     } else if (keyCode === 87) {
         //W key to increment distance
-        distB += 10;
+        distB += 1;
         console.log(`the distance between dots = ${distB}`);
     } else if (keyCode === 83) {
         //S key to decrement distance
-        distB -= 10;
+        distB -= 1;
         console.log(`the distance between dots = ${distB}`);
     } else if (keyCode === 8) {
         //backspace to clear
