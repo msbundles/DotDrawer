@@ -69,3 +69,5 @@
     </tr>
   </tbody>
 </table>
+
+Additionally, you can get live updates on the size of your dot and current spaceing between the dots in the browser consol
