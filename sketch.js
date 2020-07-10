@@ -1,4 +1,4 @@
-//inital start location for the circle and variables that dictate circle position.
+//Inital start location for the circle and variables that dictate circle position.
 var x = 750;
 var y = 360;
 //scale var for distance between dots
@@ -21,8 +21,18 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
 
+function checkNeg() {
+    if (distB == 0) {
+	distB++;
+	console.log('The distance between the dots is now: 1')
+    } if (circlSiz == 0) {
+	circlSiz++;
+	console.log('The size of the dot is now: 1');
+    }
+}
+
 function keyPressed() {
-    //logic block for changing circle position
+    //Logic block for changing circle position
     if (keyCode === UP_ARROW) {
         y -= distB;
     } else if (keyCode === DOWN_ARROW) {
@@ -32,22 +42,22 @@ function keyPressed() {
     } else if (keyCode === RIGHT_ARROW) {
         x += distB;
     } else if (keyCode === 16) {
-        //shift key to reset circle position
+        //Shift key to reset circle position
         x = 750;
         y = 360;
     } else if (keyCode === 87) {
         //W key to increment distance
         distB += 1;
-        console.log(`the distance between dots = ${distB}`);
+        console.log(`The distance between dots is now: ${distB}`);
     } else if (keyCode === 83) {
         //S key to decrement distance
         distB -= 1;
-        console.log(`the distance between dots = ${distB}`);
+        console.log(`The distance between dots is now: ${distB}`);
     } else if (keyCode === 8) {
-        //backspace to clear
+        //Backspace to clear
         background(255);
     } else if (keyCode === 13) {
-        //enter to clear and re center
+        //Enter to clear and re center
         background(255);
         x = 750;
         y = 360;
@@ -59,12 +69,16 @@ function keyPressed() {
     } else if (keyCode === 88) {
         //Logic block for changing circle size(z for -, x for +)
         circlSiz++;
+	console.log(`The size of the dot is: ${circlSiz}`);
     } else if (keyCode === 90) {
         circlSiz--;
+	console.log(`The size of the dot is: ${circlSiz}`);
     } else if (keyCode === 67) {
-        //c key for size reset
+        //C key for size reset
         circlSiz = 100;
+	console.log(`The size of the circle is: ${circlSiz}`);
     }
+    checkNeg();
 }
 
 function draw() {
@@ -72,18 +86,22 @@ function draw() {
     ellipse(x, y, circlSiz, circlSiz);
     //switch for changing color
     switch (count) {
-        case 0:
-            fill(255, 255, 255);
-            break;
-        case 1:
-            fill(191, 0, 255);
-            break;
-        case 2:
-            fill(0, 246, 255);
-            break;
-        case 3:
-            fill(255, 110, 0);
-            break;
+    case 0:
+	//white
+        fill(255, 255, 255);
+        break;
+    case 1:
+	//purple
+        fill(191, 0, 255);
+        break;
+    case 2:
+	//blue
+        fill(0, 246, 255);
+        break;
+    case 3:
+	//orange
+        fill(255, 110, 0);
+        break;
     }
     //logic for keeping switch in range
     if (count == -1) {
@@ -93,3 +111,4 @@ function draw() {
         count = 1;
     }
 }
+
