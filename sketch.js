@@ -12,7 +12,7 @@ var circlSiz = 100;
 function setup() {
     createCanvas(windowWidth, windowHeight);
     document.addEventListener("keydown", function(scshot) {
-	if (scshot.ctrlKey && scshot.altKey && scshot.key === "s") { // case sensitive
+	if (scshot.ctrlKey && scshot.altKey && scshot.key === "s") {
 	    saveCanvas('myCoolImage', 'jpg');
 	}
     });
@@ -29,7 +29,8 @@ function checkNeg() {
     if (distB == 0) {
 	distB++;
 	console.log('The distance between the dots is now: 1')
-    } if (circlSiz == 0) {
+    }
+    if (circlSiz == 0) {
 	circlSiz++;
 	console.log('The size of the dot is now: 1');
     }
@@ -38,50 +39,66 @@ function checkNeg() {
 //Handling all of the keypresses
 function keyPressed() {
     //Logic block for changing circle position using the arrow keys
-    if (keyCode === UP_ARROW) {
+    switch (keyCode) {
+    case UP_ARROW:
 	y -= distB;
-    } else if (keyCode === DOWN_ARROW) {
+	break;
+    case DOWN_ARROW:
 	y += distB;
-    } else if (keyCode === LEFT_ARROW) {
+	break;
+    case LEFT_ARROW:
 	x -= distB;
-    } else if (keyCode === RIGHT_ARROW) {
+	break;
+    case RIGHT_ARROW:
 	x += distB;
-    } else if (keyCode === 16) {
+	break;
+    case 16:
 	//Shift key to reset circle position
 	x = 750;
 	y = 360;
-    } else if (keyCode === 87) {
+	break;
+    case 87:
 	//W key to increment distance
 	distB += 1;
 	console.log(`The distance between dots is now: ${distB}`);
-    } else if (keyCode === 83) {
+	break;
+    case 83:
 	//S key to decrement distance
 	distB -= 1;
 	console.log(`The distance between dots is now: ${distB}`);
-    } else if (keyCode === 8) {
+	break;
+    case 8:
 	//Backspace to clear
 	background(255);
-    } else if (keyCode === 13) {
+	break;
+    case 13:
 	//Enter to clear and re center
 	background(255);
 	x = 750;
 	y = 360;
-    } else if (keyCode === 50) {
-	//Logic for changing color switch statment(2 for +,1 for -)
+	break;
+	// Setting dot color
+    case 50:
 	count++;
-    } else if (keyCode === 49) {
+	break;
+    case 49:
 	count--;
-    } else if (keyCode === 88) {
-	//Logic block for changing circle size(z for -, x for +)
+	break;
+    case 88:
+	// X key to increase size
 	circlSiz++;
 	console.log(`The size of the dot is: ${circlSiz}`);
-    } else if (keyCode === 90) {
+	break;
+    case 90:
+	// Z key to decrease size
 	circlSiz--;
 	console.log(`The size of the dot is: ${circlSiz}`);
-    } else if (keyCode === 67) {
+	break;
+    case 67:
 	//C key for size reset
 	circlSiz = 100;
 	console.log(`The size of the circle is: ${circlSiz}`);
+	break;
     }
     checkNeg();
 }
